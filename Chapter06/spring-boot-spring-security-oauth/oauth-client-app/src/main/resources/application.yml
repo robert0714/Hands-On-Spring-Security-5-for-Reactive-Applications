@@ -18,3 +18,10 @@ security:
 
 movie:
   base-uri: http://localhost:8081/oauth-resource/movie
+  
+#Setting logging levels
+logging: 
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    org.springframework.security: DEBUG
