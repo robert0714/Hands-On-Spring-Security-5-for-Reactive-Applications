@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-keytool -import -alias thekeystore -storepass password -file thekeystore.crt -keystore "$JAVA_HOME/jre/lib/security/cacerts"
-=======
+
 # CAS server and secured client setup  
+## Exporting the .crt file to Java and the JRE  cacert  
+keytool -import -alias thekeystore -storepass password -file thekeystore.crt -keystore "$JAVA_HOME/jre/lib/security/cacerts"
 
 ## CAS Server  
 <img src="../screenshots/1.1.png" alt="" align="center">  
