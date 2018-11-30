@@ -26,18 +26,17 @@
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
-            <version>2.3.2.RELEASE</version>
+            <version>2.3.4.RELEASE</version>
         </dependency>
         <!--Thymeleaf-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>2.0.3.RELEASE</version>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId> 
         </dependency>
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-            <version>3.0.2.RELEASE</version>
+            <version>3.0.4.RELEASE</version>
         </dependency>
         <!--Lombok-->
         <dependency>

@@ -45,6 +45,4 @@ public class ApplicationConfig {
                 .build();
         return database;
     }
-    
-    
 }

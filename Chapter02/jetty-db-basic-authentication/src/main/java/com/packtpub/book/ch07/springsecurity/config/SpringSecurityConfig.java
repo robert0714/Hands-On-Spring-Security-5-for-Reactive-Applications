@@ -24,20 +24,17 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth.jdbcAuthentication().dataSource(dataSource)
-				.usersByUsernameQuery("select username, password, enabled" + " from users where username = ?")
-				.authoritiesByUsernameQuery("select username, authority " + "from authorities where username = ?")
+				.usersByUsernameQuery("select username, password, enabled  from users where username = ?")
+				.authoritiesByUsernameQuery("select username, authority  from authorities where username = ?")
 				.passwordEncoder(new BCryptPasswordEncoder());
     }
 
 
-    /**
-     * In Chrome the best way to do that for a single server is to open a new incognito window
-     * */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	
     	//p.214 
-		http.csrf().disable();
+//		http.csrf().disable();
 		
 		//p.215 To persist the CSRF token. 
 //		http.csrf().csrfTokenRepository(new CookieCsrfTokenRepository());
@@ -58,22 +55,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
         .antMatchers("/admin/h2/**").permitAll() .and().authorizeRequests() .antMatchers("/").hasAnyRole("ADMIN", "USER")
           
-//        http.authorizeRequests().anyRequest().hasAnyRole("ADMIN", "USER")
             .and()
-            .authorizeRequests().antMatchers("/login**").permitAll()
-            .and()
-            .formLogin()
-                .loginPage("/login").loginProcessingUrl("/loginProc")                
-                .failureUrl("/login?error=true")
-                .permitAll()
-            .and()
-            .logout()
-                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/login")
-                .invalidateHttpSession(true)
-                .permitAll()
-            .and()
-            .rememberMe().rememberMeParameter("rememberme").tokenRepository(tokenRepository());
+            .httpBasic(); //Use Basic authentication
         
         // Enable <frameset> in order to use H2 web console
           http.headers().frameOptions().disable();
