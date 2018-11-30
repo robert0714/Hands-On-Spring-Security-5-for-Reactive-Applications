@@ -10,6 +10,6 @@ spring.cloud.vault:
     read-timeout: 5000  # read timeout in milliseconds
     config:
         order: -10  # order for property source
-    token: ee60f275-7b16-48ea-0e74-dc48b4b3729c
+    token: 8QePhpj29V7hJXAIXo3hVvcd
 
 health.vault.enabled: false  # health endpoint enabled using spring actuator
