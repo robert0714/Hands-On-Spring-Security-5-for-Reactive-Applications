@@ -17,7 +17,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 
 import java.util.Arrays;
 
-@EnableWebSecurity
+@EnableWebSecurity(debug=true)
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
